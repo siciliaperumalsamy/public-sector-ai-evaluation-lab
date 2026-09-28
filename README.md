@@ -224,8 +224,9 @@ Each generated finding includes the underlying government-framework evidence use
 See:
 
 ```text
-examples/example_western_power_rag_assessment.md
+examples/western_power_rag_assessment.md
 ```
+
 ## Public Health AI Assurance Example
 
 To test the assurance workflow in a public-health context, I added a scenario involving an **Australian public health agency** considering a generative AI assistant to help staff find and summarise information from communicable-disease policies and operational guidance.
