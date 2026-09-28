@@ -5,8 +5,7 @@ from clean_text import clean_page_text
 
 # This points Python to the government AI assurance framework PDF
 # that I'm using as the first public source for this project.
-pdf_path = Path("data/wa_ai_policy_assurance_framework.pdf")
-
+pdf_path = Path("data/national_ai_assurance_framework.pdf")
 
 # Open the PDF so I can access and process each page.
 reader = PdfReader(pdf_path)

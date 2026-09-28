@@ -4,6 +4,10 @@ A Python prototype exploring how public-sector AI use cases can be evaluated aga
 
 The application takes a proposed AI use case, retrieves relevant evidence from the **National Framework for the Assurance of Artificial Intelligence in Government**, provides that evidence to a language model for structured analysis, validates the model's source references, and generates a human-verifiable assessment report.
 
+## Source document
+
+The prototype uses the *National framework for the assurance of artificial intelligence in government* (Version 1.0, 21 June 2024), a joint framework from the Australian, state and territory governments. The PDF is not included in this repository. Download it and save it as `data/national_ai_assurance_framework.pdf`.
+
 The project was developed iteratively:
 
 - **V1** established a transparent keyword-based retrieval and rule-based assessment baseline.
@@ -244,8 +248,9 @@ This example complements the technical agent-testing work in my separate AI Agen
 See:
 
 ```text
-examples/example_public_health_ai_assurance_assessment.md
 
+examples/example_australian_public_health_agency_rag_assessment.md
+```
 ## V1 → V2: Improving Retrieval
 
 The first version of the prototype used transparent keyword matching.
@@ -358,7 +363,7 @@ public-sector-ai-evaluation-lab/
 |   `-- western_power_assessment_preview.png
 |
 |-- data/
-|   `-- local government assurance framework
+|   `-- national_ai_assurance_framework.pdf (not committed; see Source document)
 |
 |-- examples/
 |   |-- example_department_of_communities_ai_assessment.md
