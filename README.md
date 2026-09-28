@@ -365,11 +365,11 @@ public-sector-ai-evaluation-lab/
 |-- data/
 |   `-- national_ai_assurance_framework.pdf (not committed; see Source document)
 |
-   |-- examples/
-   |   |-- example_australian_public_health_agency_rag_assessment.md
-   |   |-- example_department_of_communities_ai_assessment.md
-   |   |-- example_western_power_ai_assessment.md
-   |   `-- western_power_rag_assessment.md
+|-- examples/
+|   |-- example_australian_public_health_agency_rag_assessment.md
+|   |-- example_department_of_communities_ai_assessment.md
+|   |-- example_western_power_ai_assessment.md
+|   `-- western_power_rag_assessment.md
 |
 |-- outputs/
 |   `-- locally generated assessment reports
