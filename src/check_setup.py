@@ -1,1 +1,0 @@
-print("Public Sector AI Assurance Lab is running.")

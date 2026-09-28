@@ -25,9 +25,8 @@ venv/
 # ENVIRONMENT VARIABLES / SECRETS
 # ---------------------------------------------------------
 
-# I am not currently using API keys in V1, but I want to make sure
-# environment files are never accidentally committed if I introduce
-# APIs or cloud services later.
+# My Gemini API key is stored in a local .env file.
+# These rules make sure it is never committed to GitHub.
 .env
 .env.*
 

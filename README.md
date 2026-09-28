@@ -4,10 +4,6 @@ A Python prototype exploring how public-sector AI use cases can be evaluated aga
 
 The application takes a proposed AI use case, retrieves relevant evidence from the **National Framework for the Assurance of Artificial Intelligence in Government**, provides that evidence to a language model for structured analysis, validates the model's source references, and generates a human-verifiable assessment report.
 
-## Source document
-
-The prototype uses the *National framework for the assurance of artificial intelligence in government* (Version 1.0, 21 June 2024), a joint framework from the Australian, state and territory governments. The PDF is not included in this repository. Download it and save it as `data/national_ai_assurance_framework.pdf`.
-
 The project was developed iteratively:
 
 - **V1** established a transparent keyword-based retrieval and rule-based assessment baseline.
@@ -29,6 +25,10 @@ I built this project to explore a practical question:
 Rather than attempting to automate an assurance or compliance decision, the prototype acts as an initial decision-support tool.
 
 It combines automated retrieval and LLM-assisted analysis with explicit human-verification mechanisms.
+
+## How This Was Built
+
+I built this project with the help of AI coding assistants, which wrote most of the code. My role was to decide what the prototype should do, run and test each version, identify where it failed, and direct the changes described below. I can explain what each component does and why it is designed this way, and I am continuing to build my own coding skills.
 
 ## What the Prototype Does
 
@@ -248,9 +248,9 @@ This example complements the technical agent-testing work in my separate AI Agen
 See:
 
 ```text
-
 examples/example_australian_public_health_agency_rag_assessment.md
 ```
+
 ## V1 → V2: Improving Retrieval
 
 The first version of the prototype used transparent keyword matching.
@@ -365,10 +365,11 @@ public-sector-ai-evaluation-lab/
 |-- data/
 |   `-- national_ai_assurance_framework.pdf (not committed; see Source document)
 |
-|-- examples/
-|   |-- example_department_of_communities_ai_assessment.md
-|   |-- example_western_power_ai_assessment.md
-|   `-- example_western_power_rag_assessment.md
+   |-- examples/
+   |   |-- example_australian_public_health_agency_rag_assessment.md
+   |   |-- example_department_of_communities_ai_assessment.md
+   |   |-- example_western_power_ai_assessment.md
+   |   `-- western_power_rag_assessment.md
 |
 |-- outputs/
 |   `-- locally generated assessment reports
@@ -394,6 +395,10 @@ public-sector-ai-evaluation-lab/
 |-- README.md
 `-- requirements.txt
 ```
+
+## Source document
+
+The prototype uses the *National framework for the assurance of artificial intelligence in government* (Version 1.0, 21 June 2024), a joint framework from the Australian, state and territory governments. The PDF is not included in this repository. Download it and save it as `data/national_ai_assurance_framework.pdf`.
 
 ## Running the Prototype
 
@@ -515,6 +520,8 @@ At the current V3 checkpoint:
 
 The tests deliberately avoid making live Gemini calls so routine testing remains deterministic and does not consume API usage.
 
+Note: the tests still need a `GEMINI_API_KEY` in `.env` and the framework PDF in `data/`, because some modules load these when they are imported.
+
 ## Design Decisions
 
 ### Modular architecture
@@ -592,6 +599,9 @@ Current limitations include:
 - language models can still misinterpret or overstate retrieved evidence
 - source-ID validation confirms that a cited chunk exists but does not automatically prove that it supports the generated claim
 - human verification remains necessary
+- findings returned with no source IDs are not currently rejected; only invalid source IDs are detected
+- semantic retrieval always returns the top 6 chunks, even when none are strongly relevant (no minimum similarity threshold)
+- fixed-size character chunking can split words and sentences, which is visible in some evidence excerpts
 - no automated technical testing of an actual AI model or agent is currently performed
 - no production authentication or access-control layer is included
 - no production cloud deployment is currently included
